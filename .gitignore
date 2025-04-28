@@ -1,0 +1,16 @@
+# ssh keys
+id_rsa
+id_rsa.pub
+# pki infra
+openvpn-ca
+# ovpn profiles
+*.ovpn
+# cloud-init files
+cloud-init?.yml
+# terraform plan
+tfplan
+# terraform state
+.terraform
+*.lock.hcl
+*.tfstate
+*.tfstate.backup

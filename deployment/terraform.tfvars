@@ -121,7 +121,7 @@ servers = {
     network_key      = "server_network"
     firewall_key     = "server_firewall"
     loadbalancer_key = "server_loadbalancer"
-    private_ip       = "10.0.0.1"
+    private_ip       = "10.0.0.2"
     user_data_path   = "./cloud-init1.yml"
   }
   "server2" = {
@@ -129,7 +129,7 @@ servers = {
     network_key      = "server_network"
     firewall_key     = "server_firewall"
     loadbalancer_key = "server_loadbalancer"
-    private_ip       = "10.0.0.2"
+    private_ip       = "10.0.0.3"
     user_data_path   = "./cloud-init2.yml"
   }
   "server3" = {
@@ -137,7 +137,7 @@ servers = {
     network_key      = "server_network"
     firewall_key     = "server_firewall"
     loadbalancer_key = "server_loadbalancer"
-    private_ip       = "10.0.0.3"
+    private_ip       = "10.0.0.4"
     user_data_path   = "./cloud-init3.yml"
   }
   "server4" = {
@@ -145,7 +145,7 @@ servers = {
     network_key      = "server_network"
     firewall_key     = "server_firewall"
     loadbalancer_key = "server_loadbalancer"
-    private_ip       = "10.0.0.4"
+    private_ip       = "10.0.0.5"
     user_data_path   = "./cloud-init4.yml"
   }
   "server5" = {
@@ -153,7 +153,7 @@ servers = {
     network_key      = "server_network"
     firewall_key     = "server_firewall"
     loadbalancer_key = "server_loadbalancer"
-    private_ip       = "10.0.0.5"
+    private_ip       = "10.0.0.6"
     user_data_path   = "./cloud-init5.yml"
   }
 }

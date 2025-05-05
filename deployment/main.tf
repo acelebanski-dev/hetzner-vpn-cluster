@@ -57,7 +57,6 @@ module "server" {
 
   name       = "${var.name_prefix}${each.value.name}"
   labels     = var.global_labels
-  location   = var.location
   datacenter = var.datacenter
   type       = each.value.type
   image      = each.value.image
@@ -70,6 +69,6 @@ module "server" {
   ssh_keys  = [for _, v in hcloud_ssh_key.this : v.id]
   user_data = file(each.value.user_data_path)
 
-  firewall_ids    = try(module.firewall[each.value.firewall_key].firewall_id, null)
+  firewall_ids    = try([module.firewall[each.value.firewall_key].firewall_id], null)
   loadbalancer_id = try(module.loadbalancer[each.value.loadbalancer_key].loadbalancer_id, null)
 }

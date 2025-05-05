@@ -14,7 +14,6 @@ resource "hcloud_server" "this" {
   labels      = var.labels
   server_type = var.type
   image       = var.image
-  location    = var.location
   datacenter  = var.datacenter
 
   ssh_keys     = var.ssh_keys

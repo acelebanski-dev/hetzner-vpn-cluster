@@ -20,12 +20,12 @@ variable "zone" {
 }
 
 variable "location" {
-  description = "Server location name or ID."
+  description = "Location name or ID."
   type        = string
 }
 
 variable "datacenter" {
-  description = "Server data center name or ID."
+  description = "Data center name or ID."
   type        = string
 }
 

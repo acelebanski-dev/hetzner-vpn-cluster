@@ -20,23 +20,23 @@ networks = {
     routes = {
       "to_vpn_server1" = {
         destination = "10.8.1.0/24"
-        gateway     = "10.0.0.1"
+        gateway     = "10.0.0.2"
       }
       "to_vpn_server2" = {
         destination = "10.8.2.0/24"
-        gateway     = "10.0.0.2"
+        gateway     = "10.0.0.3"
       }
       "to_vpn_server3" = {
         destination = "10.8.3.0/24"
-        gateway     = "10.0.0.3"
+        gateway     = "10.0.0.4"
       }
       "to_vpn_server4" = {
         destination = "10.8.4.0/24"
-        gateway     = "10.0.0.4"
+        gateway     = "10.0.0.5"
       }
       "to_vpn_server5" = {
         destination = "10.8.5.0/24"
-        gateway     = "10.0.0.5"
+        gateway     = "10.0.0.6"
       }
     }
   }

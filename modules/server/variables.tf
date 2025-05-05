@@ -8,11 +8,6 @@ variable "labels" {
   type        = map(any)
 }
 
-variable "location" {
-  description = "Server location name or ID."
-  type        = string
-}
-
 variable "datacenter" {
   description = "Server data center name or ID."
   type        = string

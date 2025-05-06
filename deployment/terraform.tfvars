@@ -53,13 +53,6 @@ firewalls = {
         port        = "22"
         source_ips  = ["77.65.106.146/32"]
       }
-      "allow_openvpn_tcp443_in" = {
-        description = "Allow inbound OpenVPN TCP 443 to the servers"
-        direction   = "in"
-        protocol    = "tcp"
-        port        = "443"
-        source_ips  = ["0.0.0.0/0"]
-      }
       "allow_openvpn_udp1194_in" = {
         description = "Allow inbound OpenVPN UDP 1194 to the servers"
         direction   = "in"

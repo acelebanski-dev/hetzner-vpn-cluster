@@ -49,14 +49,15 @@ If you do not have your own PKI infrastructure for certificates generation, you 
 In order for the servers to come up with the right configuration, you have to prepare Cloud Init files:
 
 1. In the [deployment](./deployment/) folder, clone the [cloud-init.example.yml](./deployment/cloud-init.example.yml) 5 times with `cloud-initX.yml` name format _(where X is a number from 1 to 5)_
-2. In cloned files, replace the X in line 34 _(server 10.8.X.0 255.255.255.0)_ with a number from 1 to 5 or replace the entire subnet so it does not overlap with your network environment and between the files
-3. In cloned files, insert Base64 hashes of the certificates and keys generated in your PKI from line 51 to line 65 _(the hashes of the following files need to be provided: `ca.crt`, `<server_name>.crt`, `<server_name>.key`, `dh2048.pem`, `ta.key`)_
+2. In cloned files, replace the X in line 38 _(server 10.8.X.0 255.255.255.0)_ with a number from 1 to 5 or replace the entire subnet so it does not overlap with your network environment and between the files
+3. In cloned files, replace the Xs in line 14 _(- to: 10.8.X.0/24\n)_ with numbers from 1 to 5 excluding the number given in the previous step _(subnets from other files)_
+4. In cloned files, insert Base64 hashes of the certificates and keys generated in your PKI from line 54 to line 68 _(the hashes of the following files need to be provided: `ca.crt`, `<server_name>.crt`, `<server_name>.key`, `dh2048.pem`, `ta.key`)_
 
 ### Prepare SSH Keys
 
 In order to log into the servers, public SSH Keys need to be provided:
 
-1. Open [terraform.tfvars](./deployment/terraform.tfvars) file and find `ssh_keys` map _(line 107)_
+1. Open [terraform.tfvars](./deployment/terraform.tfvars) file and find `ssh_keys` map _(line 100)_
 2. You will find 2 objects in the map, each representing a separate SSH Key, add or remove objects depending on how many SSH Keys you want to import
 3. In the `path` property, specify the path to your public SSH Key file on the machine you will be running Terraform from
 

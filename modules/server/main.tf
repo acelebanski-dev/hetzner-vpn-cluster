@@ -31,6 +31,10 @@ resource "hcloud_server" "this" {
     ipv4         = hcloud_primary_ip.this[0].id
     ipv6_enabled = false
   }
+
+  lifecycle {
+    ignore_changes = [user_data]
+  }
 }
 
 resource "hcloud_load_balancer_target" "this" {

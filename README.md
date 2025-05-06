@@ -9,6 +9,8 @@ This project provisions VPN cluster infrastructure in Hetzner cloud with Terrafo
 
 3. Load balancing between the OpenVPN servers is achieved through proper OpenVPN client configuration. Generation of the client OpenVPN profiles is automated using a PowerShell script.
 
+4. MFA is enforced, you need to provide client certificate _(something you have)_ within your OVPN profile, as well as username and password _(something you know)_ while logging in.
+
 ## Infrastructure components
 
 The following resources are being deployed in Hetzner Cloud with Terraform:
@@ -49,9 +51,10 @@ If you do not have your own PKI infrastructure for certificates generation, you 
 In order for the servers to come up with the right configuration, you have to prepare Cloud Init files:
 
 1. In the [deployment](./deployment/) folder, clone the [cloud-init.example.yml](./deployment/cloud-init.example.yml) 5 times with `cloud-initX.yml` name format _(where X is a number from 1 to 5)_
-2. In cloned files, replace the X in line 38 _(server 10.8.X.0 255.255.255.0)_ with a number from 1 to 5 or replace the entire subnet so it does not overlap with your network environment and between the files
-3. In cloned files, replace the Xs in line 14 _(- to: 10.8.X.0/24\n)_ with numbers from 1 to 5 excluding the number given in the previous step _(subnets from other files)_
-4. In cloned files, insert Base64 hashes of the certificates and keys generated in your PKI from line 54 to line 68 _(the hashes of the following files need to be provided: `ca.crt`, `<server_name>.crt`, `<server_name>.key`, `dh2048.pem`, `ta.key`)_
+2. In cloned files, replace the X in line 48 _(server 10.8.X.0 255.255.255.0)_ with a number from 1 to 5 or replace the entire subnet so it does not overlap with your network environment and between the files
+3. In cloned files, replace the Xs in line 22 _(- to: 10.8.X.0/24\n)_ with numbers from 1 to 5 excluding the number given in the previous step _(subnets from other files)_
+4. In cloned files, insert Base64 hashes of the certificates and keys generated in your PKI from line 66 to line 80 _(the hashes of the following files need to be provided: `ca.crt`, `<server_name>.crt`, `<server_name>.key`, `dh2048.pem`, `ta.key`)_
+5. In cloned files, insert SHA-512 password hash for your OpenVPN user account in line 14
 
 ### Prepare SSH Keys
 
@@ -84,3 +87,4 @@ In order to log into the servers, public SSH Keys need to be provided:
 
 1. Download OpenVPN client application to your client operating system
 2. Use the profile generated in the previous section to connect to VPN
+3. Provide username and password set within Cloud Init file to log in
